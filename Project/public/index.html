@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+
+<html>
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Matrice Test</title>
+        <link rel="stylesheet" type= "text/css" href="./css/style.css">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:100" rel="stylesheet">
+    </head>
+
+    <header class="head">
+
+        <div class="logo">
+            <a href="https://matrice.io/"><img src="./png/Matrice.png"></a>
+        </div>
+
+        <nav class="navigation">
+            <ul class="nav">
+                <li><a href="#">Accueil</a></li> 
+                <li><a href="#searchz">Zsearch</a></li> 
+                <li><a href="#nf">Carte</a></li>
+                <li><a href="mailto:nicolas.caroff@live.fr">Contact</a></li> 
+            </ul>
+        </nav>
+
+    </header>
+
+    <back class="background">
+        <img src="./jpeg/sushi.jpg">
+    </back>
+
+    <content class="torso">
+        
+        <div class="about">
+            <h1>Qui sommes-nous ?</h1><br><br>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p><br><br>
+                    <button class="button" onclick="Hello()" onclick=""">Click ici pour activer l'alerte !</button>
+                        <script>
+                            function Hello(){
+                                alert("Hello");
+                            }
+                        </script>
+
+        </div>
+
+        <div class="reviews">
+            <h1>Les avis</h1><br><br>
+                <p>"Never gonna give you up, never gonna let you down"</p><br>
+                    <h5>Rick Astley</h5>
+
+        </div>
+
+        <div class="map" id="nf">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d10498.899755745866!2d2.3531917!3d48.8634553!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x4f47ad611dcd8af8!2sMaison%20Nicolas%20Flamel!5e0!3m2!1sfr!2sfr!4v1647362439336!5m2!1sfr!2sfr" width="950" height="500" style="border:0;" allowfullscreen="" loading="lazy"></iframe><br><br><br>
+                <h1>49 Rue de Montmorency, 75003 Paris</h1><br>
+                    <h2>Visite ?</h2>
+        </div>
+
+        <div class="search" id="searchz">
+            <h1>Search Z</h1><br>
+                <input class="box" type="text" placeholder="Message" id="takeZ"><br><br>
+                    <button class="button" onclick="search_z()">Lancer</button><br><br>
+                        <p id="returnZ"></p>
+                            <script>
+                                function search_z() {
+                                    var x = document.getElementById("takeZ").value;
+                                    var y = x.toLowerCase()
+
+                                    var z = (y.match(/z/g) || []).length;
+
+                                    if (z > 0){
+                                        return document.getElementById("returnZ").innerHTML = "Il y a " + z + " z";
+                                    } else{
+                                        return document.getElementById("returnZ").innerHTML = "Il y a 0 z";
+                                    }
+                                }
+                            </script>
+        </div>
+
+        <div class="ip">
+            <h1>IP Validator</h1><br>
+                <input class="box" placeholder="Message" type="text" id="takeIP"><br><br>
+                    <button class="button" onclick="ip_validator()">Lancer</button><br><br>
+                        <p id="returnIP"></p>
+                            <script>
+                                function ip_validator() {
+                                    var x = document.getElementById("takeIP").value;
+
+                                    if (/^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/.test(x)) {  
+                                        return document.getElementById("returnIP").innerHTML = "Valid";
+                                    } else {
+                                        return document.getElementById("returnIP").innerHTML = "Not valid";
+                                    }
+                                }
+                            </script>
+        </div>
+
+        <div class="bigram">
+            <h1>Bigram</h1><br>
+                <input class="box" placeholder="Message" type="text" id="takeBigram"><br><br>
+                    <button class="button" onclick="bigram()">Lancer</button><br><br>
+                        <p id="returnBigram"></p>
+                            <script>
+                                function bigram(data, length) {
+                                    
+                                    var data = document.getElementById("takeBigram").value.split(" ");
+                                    var length = 3
+                                    var result = [];
+                                    
+                                        for (var i = 0; i < data.length - (length - 1); i++) {
+                                            var progress = [];
+                                    
+                                            for (var j = 0; j < length; j++) {
+                                                progress.push(data[i + j])
+                                            }
+                                    
+                                            result.push(progress);
+                                        }
+                                
+                                        var stringResult = result.toString()
+                                        var finalResult = stringResult.replace(/,/g, ' ');
+                                        
+                                        return document.getElementById("returnBigram").innerHTML = finalResult;
+                                }
+                            </script>
+        </div>
+
+    </content>
+</html>
